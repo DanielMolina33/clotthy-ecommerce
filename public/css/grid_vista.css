@@ -1,0 +1,208 @@
+main{
+  display: grid;
+  grid-row-gap: 60px;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(3, auto);
+}
+
+main .img_vista{
+  justify-self: center;
+  width: 100%;
+  max-width: 400px;
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+}
+
+main .img_vista div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .img_vista div:nth-child(2){
+  justify-content: flex-end;
+}
+
+main .img_vista div:nth-child(4){
+  justify-content: flex-start;
+}
+
+main .img_vista div img{
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100px;
+  object-fit: contain;
+  border: 1px solid #707070;
+}
+
+main .img_vista div:first-child{
+  grid-column: 1/-1;
+}
+
+main .img_vista div:first-child img{
+  height: 300px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 80%;
+}
+
+main .compra div{
+  display: flex;
+  flex-direction: column;
+}
+
+main .compra div .titulo_descripcion{
+  font: 1.2rem 'source-sans', Helvetica, Arial;
+}
+
+main .compra div .precio_envio{
+  font: 1rem 'source-sans', Helvetica, Arial;
+  margin-bottom: 20px;
+}
+
+main .compra div .titulo_descripcion h3,
+main .compra div .titulo_descripcion p,
+main .compra div .precio_envio p{
+  width: 100%;
+  max-width: 350px;
+}
+
+main .compra div .titulo_descripcion h3 {
+  width: 100%;
+  font-size: 2rem;
+}
+
+main .compra div .precio_envio p:first-child{
+  font-size: 1.4rem;
+  font-weight: 200;
+  margin-bottom: 5px;
+}
+
+main .compra div .precio_envio p:nth-child(2){
+  font-size: .9rem;
+}
+
+main .compra div .controles .cantidad{
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+  font: 1rem 'source-sans', Helvetica, Arial;
+}
+
+main .compra div .controles .cantidad input[type="number"]{
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  width: 50px;
+  margin-left: 10px;
+  text-align: center;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #707070;
+  font: 1rem 'source-sans', Helvetica, Arial;
+}
+
+main .compra div .controles .select,
+main .compra div .controles .botones input[type="button"],
+main .resumen_compra input[type="button"]{
+  font: 1rem 'source-sans', Helvetica, Arial;
+  background: #0286c9;
+  color: #fff;
+  border: none;
+  outline: none;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  /* width: 100%; */
+}
+
+.botones input[type="button"] {
+  cursor: pointer;
+}
+
+main .compra div .controles .select ul{
+  display: none;
+}
+
+main .compra div .controles .select ul li,
+main .compra div .controles .select span{
+  cursor: default;
+}
+
+main .detalles_producto {
+  grid-column: 1 / span 2;
+}
+
+main .detalles_producto h3{
+  font: 1.4rem 'source-sans', Helvetica, Arial;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: left;
+  font-weight: lighter;
+  margin-bottom: 30px;
+}
+
+main .detalles_producto p{
+  text-align: left;
+  font: 1rem 'source-sans', Helvetica, Arial;
+}
+
+main .resumen_compra{
+  display: none;
+}
+
+main .resumen_compra h1{
+  font: 1.8rem 'source-sans', Helvetica, Arial;
+  margin-bottom: 30px;
+}
+
+main .resumen_compra h2{
+  font: 1.5rem 'source-sans', Helvetica, Arial;
+  margin-bottom: 30px;
+}
+
+main .resumen_compra h3{
+  font: 1.2rem 'source-sans', Helvetica, Arial;
+  margin-bottom: 30px;
+}
+
+main .resumen_compra ul{
+  margin-bottom: 30px;
+}
+
+main .resumen_compra ul li{
+  font: 1rem 'source-sans', Helvetica, Arial;
+  list-style: disc inside;
+  line-height: 30px;
+}
+
+
+@media screen and (min-width: 700px){
+  main{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+
+  main .img_vista{
+    justify-self: start;
+  }
+
+  main .img_vista div{
+    justify-content: flex-start;
+  }
+
+  main .img_vista div:nth-child(2){
+    justify-content: flex-start;
+  }
+
+  main .img_vista div img{
+    width: 85%;
+  }
+
+  main .img_vista div:first-child img{
+    width: 95%;
+  }
+}
+

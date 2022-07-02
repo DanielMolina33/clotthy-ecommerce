@@ -1,0 +1,30 @@
+/* Encabezados */
+@font-face {
+  font-family: road-rage;
+  src: url("../fuentes/Road_Rage.otf");
+}
+
+/* Titulos */
+@font-face{
+  font-family: source-sans-regular;
+  src: url("../fuentes/SourceSansPro-Regular.ttf");
+}
+
+/* Parrafos */
+@font-face{
+  font-family: lato-regular;
+  src: url("../fuentes/Lato-Regular.ttf");
+}
+
+@font-face {
+  src: url('../fuentes/OpenSans-Regular.ttf');
+  font-family: 'open-sans';
+  font-display: swap;
+}
+
+@font-face {
+  src: url('../fuentes/SourceSansPro-Regular.ttf');
+  font-family: 'source-sans';
+  font-display: swap;
+}
+

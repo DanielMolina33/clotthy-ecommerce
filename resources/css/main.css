@@ -1,0 +1,84 @@
+@import "fuentes.css";
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body,
+html{
+  width: 100%;
+}
+
+main{
+  position: relative;
+  top: 70px;
+  width: 100%;
+  max-width: 885px;
+  padding: 20px;
+  margin-bottom: 100px;
+  z-index: 500;
+}
+
+footer{
+  position: relative;
+  top: 70px;
+  width: 100%;
+  height: 70px;
+  z-index: 500;
+}
+
+footer .informacion{
+  display: none;
+}
+
+footer .autor{
+  width: 100%;
+  height: 70px;
+  font: 1.25rem 'source-sans', Helvetica, Arial;
+  text-align: center;
+  line-height: 70px;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+@media screen and (min-width: 700px){
+  main{
+    position: static;
+    padding: 0;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  footer{
+    height: 140px;
+  }
+
+  footer .informacion{
+    display: block;
+    width: 100%;
+    height: 100px;
+    background-color: #373737
+  }
+
+  footer .informacion a{
+    display: inline-block;
+    font: 1rem 'source-sans', Helvetica, Arial;
+    color: #ffffff;
+    margin: 0px 10px;
+    line-height: 100px;
+    text-decoration: none;
+  }
+
+  footer .informacion a:first-child{
+    margin-left: 60px;
+  }
+
+  footer .autor{
+    height: 40px;
+    font: .9rem 'source-sans', Helvetica, Arial;
+    line-height: 40px;
+  }
+}
