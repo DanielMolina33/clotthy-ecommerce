@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\HomeController@index');
 Route::get('/product/{id}/{ref}', 'App\Http\Controllers\ProductController@index')->name('product');
 Route::get('/prod-amount', 'App\Http\Controllers\ProductController@getProdAmount');
+Route::get('/login', function(){
+    return view('login');
+});

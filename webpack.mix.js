@@ -23,4 +23,5 @@ mix.js('resources/js/efecto.js', 'public/js')
 mix.js('resources/js/select.js', 'public/js')
 .css('resources/css/style.css', 'public/css')
 .css('resources/css/main.css', 'public/css')
-.css('resources/css/grid_vista.css', 'public/css');
+.css('resources/css/grid_vista.css', 'public/css')
+.css('resources/css/login.css', 'public/css');
