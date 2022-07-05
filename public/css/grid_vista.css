@@ -105,7 +105,7 @@ main .compra div .controles .cantidad input[type="number"]{
 }
 
 main .compra div .controles .select,
-main .compra div .controles .botones input[type="button"],
+main .compra div .controles .botones input[type="submit"],
 main .resumen_compra input[type="button"]{
   font: 1rem 'source-sans', Helvetica, Arial;
   background: #0286c9;
@@ -118,12 +118,20 @@ main .resumen_compra input[type="button"]{
   /* width: 100%; */
 }
 
-.botones input[type="button"] {
+.botones input[type="submit"] {
   cursor: pointer;
 }
 
 main .compra div .controles .select ul{
   display: none;
+}
+
+main .compra div .controles .select ul li a {
+  display: block;
+  text-decoration: none;
+  font: inherit;
+  color: inherit;
+  width: 100%;
 }
 
 main .compra div .controles .select ul li,
@@ -148,36 +156,6 @@ main .detalles_producto p{
   text-align: left;
   font: 1rem 'source-sans', Helvetica, Arial;
 }
-
-main .resumen_compra{
-  display: none;
-}
-
-main .resumen_compra h1{
-  font: 1.8rem 'source-sans', Helvetica, Arial;
-  margin-bottom: 30px;
-}
-
-main .resumen_compra h2{
-  font: 1.5rem 'source-sans', Helvetica, Arial;
-  margin-bottom: 30px;
-}
-
-main .resumen_compra h3{
-  font: 1.2rem 'source-sans', Helvetica, Arial;
-  margin-bottom: 30px;
-}
-
-main .resumen_compra ul{
-  margin-bottom: 30px;
-}
-
-main .resumen_compra ul li{
-  font: 1rem 'source-sans', Helvetica, Arial;
-  list-style: disc inside;
-  line-height: 30px;
-}
-
 
 @media screen and (min-width: 700px){
   main{

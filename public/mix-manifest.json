@@ -2,8 +2,12 @@
     "/js/app.js": "/js/app.js",
     "/js/efecto.js": "/js/efecto.js",
     "/js/select.js": "/js/select.js",
+    "/js/login.js": "/js/login.js",
+    "/js/addToCart.js": "/js/addToCart.js",
+    "/js/cart.js": "/js/cart.js",
     "/css/style.css": "/css/style.css",
     "/css/login.css": "/css/login.css",
+    "/css/cart.css": "/css/cart.css",
     "/css/main.css": "/css/main.css",
     "/css/grid_vista.css": "/css/grid_vista.css"
 }

@@ -47,4 +47,8 @@
 @endsection
 
 @section('script')
+  <script>
+    localStorage.removeItem('size');
+    localStorage.removeItem('color');
+  </script>
 @endsection

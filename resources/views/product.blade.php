@@ -10,6 +10,10 @@
     <script src="{{ mix('js/select.js') }}"></script>
   </head>
   <body>
+    <?php 
+		$productId = $product['id'];
+		$ref = $product['referenciaprod'];
+	?>
     <main>
       <section class="img_vista">
         <div><img src="{{ $product['imgprod1'] }}" alt="Imagen de producto 1"></div>
@@ -35,16 +39,24 @@
           <div class="controles">
             <div class="cantidad" id="prodAmount">
               <label>Cantidad</label>
-              <input type="number"/>
+			  <form id="form">
+              	<input type="number" name="prod_amount"/>
+              	<input type="hidden" name="id_prod_cart" value="{{ $productId }}"/>
+			  </form>
             </div>
             <div class="select" id="talla">
               <span>Seleccione una talla</span>
               <ul>
-                <li>{{ $size }}</li>
+                <li>
+					<a href="{{ route('product', ['id' => $productId, 'ref' => $ref]) }}">{{ $size }}</a>
+                </li>
                 @if(isset($product['relacionados']))
                     @foreach($product['relacionados'] as $item)
                         @if($size != $item['strtalla'])
-                            <li>{{ $item['strtalla'] }}</li>
+							<?php $id = $item['id']; ?>
+                            <li>
+								<a href="{{ route('product', ['id' => $id, 'ref' => $ref]) }}">{{ $item['strtalla'] }}</a>
+							</li>
                         @endif
                     @endforeach
                 @endif
@@ -53,19 +65,23 @@
             <div class="select" id="color">
               <span>Seleccione un color</span>
               <ul>
-                <li>{{ $color }}</li>
+                <li>
+					<a href="{{ route('product', ['id' => $productId, 'ref' => $ref]) }}">{{ $color }}</a>
+                </li>
                 @if(isset($product['relacionados']))
                     @foreach($product['relacionados'] as $item)
                         @if($color != $item['strcolor'])
-                            {{-- Add link to another related product --}}
-                            <li>{{ $item['strcolor'] }}</li>
+                            <?php $id = $item['id']; ?>
+                            <li>
+								<a href="{{ route('product', ['id' => $id, 'ref' => $ref]) }}">{{ $item['strcolor'] }}</a>
+                            </li>
                         @endif
                     @endforeach
                 @endif
               </ul>
             </div>
             <div class="botones">
-              <input type="button" value="Añadir al carrito" id="addToCart"/>
+              <input type="submit" form="form" value="Añadir al carrito" id="addToCart"/>
             </div>
           </div>
         </div>
@@ -78,12 +94,9 @@
 
     <script>
         const prodAmount = document.querySelector("#prodAmount");
-        const btnAddToCart = document.querySelector('#addToCart');
-
         prodAmount.addEventListener("change", verifyProdAmount);
         prodAmount.addEventListener("keyup", verifyProdAmount);
         prodAmount.addEventListener("blur", function(e){ e.preventDefault(); });
-        btnAddToCart.addEventListener("click", addToCart);
 
         function verifyProdAmount(e){
             const value = e.target.value;
@@ -98,16 +111,7 @@
             const prodAmount = "<?php echo $product['existenciaprod'] ?>";
             return prodAmount;
         }
-
-        function addToCart(e){
-            const token = localStorage.getItem('token');
-
-            if(!token){
-                document.location.href = "http://127.0.0.1:8000/";
-            } else {
-                console.log("Go to shopping cart");
-            }
-        }
     </script>
+    <script src="{{ mix('js/addToCart.js') }}"></script>
   </body>
 </html>

@@ -16,7 +16,7 @@
         <section class="login">
             <div class="login-container">
                 <h1 class="login-container_title">Inicio de sesión</h1>
-                <form action="#" method="POST" class="login-container_form">
+                <form action="#" method="POST" class="login-container_form" id="form">
                     <div class="control">
                         <input
                             type="email"
@@ -50,5 +50,6 @@
             </div>
         </section>
     </main>
+    <script src="{{ mix('js/login.js') }}"></script>
 </body>
 </html>
