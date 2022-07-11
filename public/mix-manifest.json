@@ -3,11 +3,18 @@
     "/js/efecto.js": "/js/efecto.js",
     "/js/select.js": "/js/select.js",
     "/js/login.js": "/js/login.js",
+    "/js/logout.js": "/js/logout.js",
     "/js/addToCart.js": "/js/addToCart.js",
     "/js/cart.js": "/js/cart.js",
+    "/js/menu.js": "/js/menu.js",
+    "/js/menuConfig.js": "/js/menuConfig.js",
+    "/js/orderBy.js": "/js/orderBy.js",
+    "/js/pagination.js": "/js/pagination.js",
     "/css/style.css": "/css/style.css",
     "/css/login.css": "/css/login.css",
     "/css/cart.css": "/css/cart.css",
     "/css/main.css": "/css/main.css",
+    "/css/products.css": "/css/products.css",
+    "/css/menu.css": "/css/menu.css",
     "/css/grid_vista.css": "/css/grid_vista.css"
 }

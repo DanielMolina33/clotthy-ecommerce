@@ -4,9 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
     <title>Producto</title>
+    <link rel="stylesheet" href="{{ mix('css/menu.css') }}">
     <link rel="stylesheet" href="{{ mix('css/main.css') }}">
     <link rel="stylesheet" href="{{ mix('css/grid_vista.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ mix('js/menu.js') }}"></script>
+    <script src="{{ mix('js/menuConfig.js') }}"></script>
     <script src="{{ mix('js/select.js') }}"></script>
   </head>
   <body>
@@ -14,6 +18,7 @@
 		$productId = $product['id'];
 		$ref = $product['referenciaprod'];
 	?>
+    <x-navbar/>
     <main>
       <section class="img_vista">
         <div><img src="{{ $product['imgprod1'] }}" alt="Imagen de producto 1"></div>
@@ -91,7 +96,6 @@
         <p>{{ $product['descripcionprod'] }}</p>
       </section>
     </main>
-
     <script>
         const prodAmount = document.querySelector("#prodAmount");
         prodAmount.addEventListener("change", verifyProdAmount);
@@ -112,6 +116,10 @@
             return prodAmount;
         }
     </script>
+    <script>
+      localStorage.removeItem('order_by');
+    </script>
     <script src="{{ mix('js/addToCart.js') }}"></script>
+    @stack('script')
   </body>
 </html>

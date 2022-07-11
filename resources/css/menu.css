@@ -1,0 +1,305 @@
+@import "fuentes.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+header,
+nav{
+  max-width: 885px;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  margin: 0px;
+  background-color: #000;
+  height: 70px;
+  z-index: 10000;
+}
+
+header .logo {
+  height: 100%;
+  width: 10%;
+  display: none;
+}
+
+header .logo a {
+  display: block;
+  text-decoration: none;
+  height: 120px;
+  margin-bottom: 10px;
+}
+
+header .logo a img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+header .menu_bar{
+  float: left;
+  margin-left: 20px;
+  height: 70px;
+}
+
+header .menu_bar span{
+  font-size: 1.5rem;
+  line-height: 70px;
+  color: #fff;
+}
+
+.menu_options {
+  align-self: center;
+}
+
+.menu_options_container {
+  display: flex;
+  margin-right: 20px;
+}
+
+.menu_options_container .option:not(:last-child){
+  margin-right: 20px;
+}
+
+.option {
+  font: 1.1rem 'source-sans', Helvetica, Arial;
+}
+
+.option_login {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.option_cart i {
+  position: relative;
+  color: #ffffff;
+}
+
+.cart::after {
+  content: '\f111';
+  font-size: 50%;
+  position: absolute;
+  top: -20%;
+  right: -20%;
+}
+
+nav{
+  overflow: auto;
+  position: fixed;
+  top: 70px;
+  left: -100%;
+  width: 70%;
+  height: calc(100% - 70px);
+  margin: 0px;
+  background-color: rgba(0,0,0,.80);
+  z-index: 10000;
+}
+
+nav .menu{
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px;
+}
+
+nav .submenu {
+  padding: 0;
+  position: relative;
+  flex-grow: 1;
+}
+
+nav .submenu ul{
+  position: relative;
+  background-color: inherit;
+  width: 100%;
+  display: none;
+  z-index: 1000;
+}
+
+nav .submenu ul li{
+  padding: 0;
+  display: block;
+  width: 100%;
+}
+
+nav .submenu ul li a{
+  text-indent: 12px;
+  font: 1rem 'source-sans', Helvetica, Arial
+}
+
+nav .submenu:hover ul{
+  display: none;
+}
+
+nav .submenu ul li:hover{
+  background-color: inherit;
+}
+
+nav .submenu:hover{
+  background-color: inherit;
+}
+
+nav .submenu span,
+nav .option span,
+nav .submenu a{
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+  text-align: left;
+  cursor: default;
+  font: 1.2rem 'source-sans', Helvetica, Arial;
+}
+
+nav .newsletter-movil{
+  margin: 20px 0 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+nav .separador{
+  width: 50%;
+  border: 1.2px solid #0286c9;
+  background-color: #0286c9;
+  margin-left: 20px;
+}
+
+nav .newsletter-movil form,
+nav .newsletter-movil div{
+  padding: 12px 20px;
+  text-align: center;
+}
+
+nav .newsletter-movil form label{
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  font: 1.5rem 'source-sans', Helvetica, Arial;
+  text-align: center;
+  color: #fff;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+nav .newsletter-movil form input[type="email"]{
+  width: 100%;
+  max-width: 300px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  margin-bottom: 10px;
+  background-color: rgba(255,255,255,.6);
+  font: 1rem 'source-sans', Helvetica, Arial;
+  color: #000;
+}
+
+nav .newsletter-movil form input[type="email"]::placeholder{
+  color: #000;
+}
+
+nav .newsletter-movil form input[type="submit"]{
+  width: 100%;
+  max-width: 300px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  background-color: #0286c9;
+  font: 1rem 'source-sans', Helvetica, Arial;
+  color: #fff;
+}
+
+nav .newsletter-movil div img{
+  width: 35px;
+  margin: 0 2px;
+}
+
+@media screen and (min-width: 700px){
+  header,
+  nav{
+    width: 95%;
+    margin: auto;
+  }
+
+  header{
+    position: static;
+    background-color: #fff;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  header .logo{
+    margin: 0;
+    display: block;
+    font-size: 1.56rem;
+  }
+
+  header .logo h1 a{
+    color: #000;
+  }
+
+  header .menu_bar{
+    display: none;
+  }
+  
+  .menu_options_container {
+    margin-right: 0;
+  }
+  
+  .option_login {
+    color: #000000;
+  }
+  
+  .option_cart i {
+    color: #0286c9;
+  }
+
+  nav{
+    overflow: visible;
+    position: sticky;
+    top: 0px;
+    margin-bottom: 30px;
+    background-color: #000;
+    height: max-content;
+  }
+
+  nav .menu{
+    flex-direction: row;
+    margin: 0;
+  }
+
+  nav .submenu ul{
+    position: absolute;
+    background-color: #0286c9;
+  }
+
+  nav .submenu:hover ul{
+    display: block;
+  }
+
+  nav .submenu ul li:hover{
+    background-color: #04699C;
+  }
+
+  nav .submenu:hover{
+    background-color: #0286C9;
+  }
+
+  nav .submenu span,
+  nav .option span,
+  nav .submenu a{
+    padding: 12px;
+    text-align: center;
+  }
+
+  nav .menu:nth-child(1n+2),
+  nav .separador,
+  nav .newsletter-movil{
+    display: none;
+  }
+}

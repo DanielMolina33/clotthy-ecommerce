@@ -39,18 +39,21 @@ async function addToCart(e){
                 await fetch(`${BASE_URL}/cart`, config)
                 .then(res => res.json())
                 .then(res => {
-                    if(res.message){
-                        let message = res.message;
+                    let message = "";
 
+                    if(res.data){
+                        message = "Producto agregado al carrito";
+                        localStorage.setItem('cartId', res.data);
+                    } else if(res.message){
+                        message = res.message;
                         if(res.message == 'El campo id prod cart ya ha sido tomado.'){
                             message = changeMessage(message, 'Este producto ya se añadió al carrito');
                         }
-
-                        alert(message);
-                        disableBtn(false, 'pointer', btnValue);
-                    } else {
-                        alert("Hubo un error, intentalo de nuevo");
                     }
+
+                    alert(message);
+                    disableBtn(false, 'pointer', btnValue);
+                    window.location.reload();
                 })
     
             } catch(error){

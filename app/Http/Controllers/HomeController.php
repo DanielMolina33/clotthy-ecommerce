@@ -4,31 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\utils\Parameters;
+use App\Http\Controllers\utils\Company;
 
 class HomeController extends Controller {
-    private $baseUrl;
-    private $path;
+    private $parameters;
+    private $company;
+    private $companyLogo;
 
     public function __construct(){
-        $this->baseUrl = env('API_BASE_URL');
-        $this->path = 'product';
+        $this->company = new Company();
+        $this->parameters = new Parameters();
+        $this->companyLogo = env('LOGO_LIGHT');
     }
-
-    private function getCompanyInfo(){
-        $url = $this->baseUrl.'company';
-        $res = Http::acceptJson()->get($url, ['search' => 'clotthy']);
-        $companyId = $res['data']['data'][0]['id'];
-        $companyInfo = Http::acceptJson()->get($url."/$companyId");
-        return $companyInfo;
-    }
-
+    
     public function index(){
-        $url = $this->baseUrl.$this->path;
-        $res = Http::acceptJson()->get($url);
-        $companyInfo = $this->getCompanyInfo();
-        return view('home')->with([
-            "res" => $res['data'],
-            "companyInfo" => $companyInfo['data']
+        $isLogged = isset($_COOKIE['token']) ? $_COOKIE['token'] : null; 
+        $categories = $this->parameters->getParameter("", "categorias");
+        $companyInfo = $this->company->getCompanyInfo();
+
+        return view('index')->with([
+            "categories" => $categories,
+            "companyInfo" => $companyInfo['data'],
+            "companyLogo" => $this->companyLogo,
+            "isLogged" => $isLogged
         ]);
     }
 }

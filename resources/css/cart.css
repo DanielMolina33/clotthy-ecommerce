@@ -88,12 +88,14 @@ button,
 }
 
 main {
+  position: relative;
   clear: both;
   font-size: 0.75rem;
   margin: 0 auto;
   overflow: hidden;
   padding: 1rem 0;
-  width: 960px;
+  width: 95%;
+  max-width: 885px;
 }
 
 .basket,
@@ -302,7 +304,15 @@ aside {
 }
 
 .summary-checkout {
-  display: block;
+  display: flex;
+}
+
+.summary-checkout form {
+  flex: 1 1 100%;
+}
+
+.summary-checkout form button {
+  width: 100%;
 }
 
 .checkout-cta {
@@ -326,6 +336,10 @@ aside {
 }
 
 @media screen and (max-width: 640px) {
+  main {
+    top: 70px;
+  }
+
   aside,
   .basket,
   .summary,

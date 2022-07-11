@@ -23,10 +23,53 @@ body::-webkit-scrollbar {
 /* ENCABEZADO --- PAGINA PRINCIPAL */
 
 .contenedor_imagen{
+  position: relative;
   background: url(../../public/images/background/img_desktop.jpg), #000;
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+/* MENU OPTIONS */
+
+.menu_options {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  opacity: .8;
+}
+
+.menu_options_container {
+  display: flex;
+  margin-right: 20px;
+}
+
+.menu_options_container .option:not(:last-child){
+  margin-right: 20px;
+}
+
+.option {
+  font: .8rem 'source-sans', Helvetica, Arial;
+}
+
+.option_login {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.option_cart i {
+  position: relative;
+  color: #ffffff;
+}
+
+.cart::after {
+  content: '\f111';
+  font-size: 50%;
+  position: absolute;
+  top: -20%;
+  right: -20%;
+}
+
+/* END MENU OPTIONS */
 
 .contenedor_fondo_azul{
   display: flex;
@@ -70,7 +113,7 @@ body::-webkit-scrollbar {
 .texto_inicio img{
   position: relative;
   animation-name: moveToDown;
-  animation-duration: 500ms;
+  animation-duration: 800ms;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
@@ -78,6 +121,7 @@ body::-webkit-scrollbar {
 /* TITULO DE ARTICULOS */
 
 .contenedor_titulo h1{
+  user-select: none;
   display: inline-block;
   vertical-align: middle;
   margin: 55px 0px;
@@ -85,6 +129,7 @@ body::-webkit-scrollbar {
 }
 
 .contenedor_titulo hr{
+  user-select: none;
   display: inline-block;
   width: 40px;
   border: 1px solid #000;
@@ -103,18 +148,29 @@ body::-webkit-scrollbar {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 20%);
+  grid-template-columns: repeat(2, 50%);
+  grid-auto-rows: 150px;
+  justify-items: center;
   justify-content: center;
-  gap: 25px;
+  row-gap: 25px;
   margin-bottom: 100px;
+  width: 100%;
 }
 
 .contenido{
+  width: 90%;
+  box-shadow: 0 0 20px #ccc;
+  border-radius: 50px;
   text-decoration: none;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
+  overflow: hidden;
+}
+
+.contenido:hover {
+  box-shadow: 0 0 20px #245BBD;
 }
 
 .contenedor_img_contenido {
@@ -128,10 +184,7 @@ body::-webkit-scrollbar {
 
 .contenido h2 {
   user-select: none;
-  align-self: flex-start;
-  display: block;
-  width: 100%;
-  font: .9rem source-sans-regular;
+  font: 1rem source-sans-regular;
   text-decoration: none;
   text-overflow: ellipsis;
   word-wrap: break-word;
@@ -176,7 +229,7 @@ body::-webkit-scrollbar {
   flex-basis: 20%;
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .contenedor_empresa_contacto .redessociales a {
@@ -199,7 +252,7 @@ body::-webkit-scrollbar {
 
 @keyframes moveToDown{
   from{top: 0px;}
-  to{top: 20px;}
+  to{top: 15px;}
 }
 
 /* TAMAÑOS DE PANTALLA */
@@ -264,6 +317,10 @@ body::-webkit-scrollbar {
 }
 
 @media screen and (min-width: 700px){
+  .grid {
+    grid-template-columns: repeat(2, 33%);
+  }
+
   .texto_inicio h1{
     font: 3rem road-rage;
   }

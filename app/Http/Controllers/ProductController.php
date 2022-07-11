@@ -21,8 +21,8 @@ class ProductController extends Controller {
     public function index($id, $ref){
         $url = $this->baseUrl.$this->path.'/'.$id;
         $res = Http::acceptJson()->get($url, ['ref' => $ref]);
-        $size = $this->parameters->getParameter ($res['data']['talla'], "tallas");
-        $color = $this->parameters->getParameter ($res['data']['color'], "colores");
+        $size = $this->parameters->getParameter($res['data']['talla'], "tallas");
+        $color = $this->parameters->getParameter($res['data']['color'], "colores");
 
         return view('product')->with([
             "product" => $res['data'],

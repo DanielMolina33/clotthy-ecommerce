@@ -1,219 +1,9 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
-
-/***/ "./node_modules/js-cookie/dist/js.cookie.mjs":
-/*!***************************************************!*\
-  !*** ./node_modules/js-cookie/dist/js.cookie.mjs ***!
-  \***************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/*! js-cookie v3.0.1 | MIT */
-/* eslint-disable no-var */
-function assign (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-    for (var key in source) {
-      target[key] = source[key];
-    }
-  }
-  return target
-}
-/* eslint-enable no-var */
-
-/* eslint-disable no-var */
-var defaultConverter = {
-  read: function (value) {
-    if (value[0] === '"') {
-      value = value.slice(1, -1);
-    }
-    return value.replace(/(%[\dA-F]{2})+/gi, decodeURIComponent)
-  },
-  write: function (value) {
-    return encodeURIComponent(value).replace(
-      /%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g,
-      decodeURIComponent
-    )
-  }
-};
-/* eslint-enable no-var */
-
-/* eslint-disable no-var */
-
-function init (converter, defaultAttributes) {
-  function set (key, value, attributes) {
-    if (typeof document === 'undefined') {
-      return
-    }
-
-    attributes = assign({}, defaultAttributes, attributes);
-
-    if (typeof attributes.expires === 'number') {
-      attributes.expires = new Date(Date.now() + attributes.expires * 864e5);
-    }
-    if (attributes.expires) {
-      attributes.expires = attributes.expires.toUTCString();
-    }
-
-    key = encodeURIComponent(key)
-      .replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent)
-      .replace(/[()]/g, escape);
-
-    var stringifiedAttributes = '';
-    for (var attributeName in attributes) {
-      if (!attributes[attributeName]) {
-        continue
-      }
-
-      stringifiedAttributes += '; ' + attributeName;
-
-      if (attributes[attributeName] === true) {
-        continue
-      }
-
-      // Considers RFC 6265 section 5.2:
-      // ...
-      // 3.  If the remaining unparsed-attributes contains a %x3B (";")
-      //     character:
-      // Consume the characters of the unparsed-attributes up to,
-      // not including, the first %x3B (";") character.
-      // ...
-      stringifiedAttributes += '=' + attributes[attributeName].split(';')[0];
-    }
-
-    return (document.cookie =
-      key + '=' + converter.write(value, key) + stringifiedAttributes)
-  }
-
-  function get (key) {
-    if (typeof document === 'undefined' || (arguments.length && !key)) {
-      return
-    }
-
-    // To prevent the for loop in the first place assign an empty array
-    // in case there are no cookies at all.
-    var cookies = document.cookie ? document.cookie.split('; ') : [];
-    var jar = {};
-    for (var i = 0; i < cookies.length; i++) {
-      var parts = cookies[i].split('=');
-      var value = parts.slice(1).join('=');
-
-      try {
-        var foundKey = decodeURIComponent(parts[0]);
-        jar[foundKey] = converter.read(value, foundKey);
-
-        if (key === foundKey) {
-          break
-        }
-      } catch (e) {}
-    }
-
-    return key ? jar[key] : jar
-  }
-
-  return Object.create(
-    {
-      set: set,
-      get: get,
-      remove: function (key, attributes) {
-        set(
-          key,
-          '',
-          assign({}, attributes, {
-            expires: -1
-          })
-        );
-      },
-      withAttributes: function (attributes) {
-        return init(this.converter, assign({}, this.attributes, attributes))
-      },
-      withConverter: function (converter) {
-        return init(assign({}, this.converter, converter), this.attributes)
-      }
-    },
-    {
-      attributes: { value: Object.freeze(defaultAttributes) },
-      converter: { value: Object.freeze(converter) }
-    }
-  )
-}
-
-var api = init(defaultConverter, { path: '/' });
-/* eslint-enable no-var */
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (api);
-
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-/*!***********************************!*\
-  !*** ./resources/js/addToCart.js ***!
-  \***********************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/dist/js.cookie.mjs");
+/*!*********************************!*\
+  !*** ./resources/js/orderBy.js ***!
+  \*********************************/
 
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -224,122 +14,59 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+var details = document.querySelector('#filters');
+var checkboxes = document.querySelectorAll(".orderBy");
+checkboxes.forEach(function (item) {
+  var orderBy = localStorage.getItem('order_by');
+  item.checked = item.value == orderBy ? true : false;
+  item.addEventListener('change', verifyCheckbox);
+});
 
-var form = document.getElementById('form');
-var btn = document.querySelector('#addToCart');
-var btnValue = btn.value;
-form.addEventListener('submit', addToCart);
-
-function checkInfo(e) {
-  var size = localStorage.getItem('size');
-  var color = localStorage.getItem('color');
-  var prodAmount = document.querySelector('#prodAmount input');
-
-  if (!size || !color || !prodAmount.value) {
-    alert("Debes elegir una talla, un color y una cantidad");
-    return false;
-  }
-
-  return true;
+function verifyCheckbox(e) {
+  var checkbox = e.target;
+  checkboxes.forEach(function (item) {
+    if (item != checkbox) {
+      item.checked = false;
+    }
+  });
+  orderBy(checkbox);
 }
 
-function addToCart(_x) {
-  return _addToCart.apply(this, arguments);
+function orderBy(_x) {
+  return _orderBy.apply(this, arguments);
 }
 
-function _addToCart() {
-  _addToCart = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
-    var isInfoOk, token, BASE_URL, config;
+function _orderBy() {
+  _orderBy = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(checkbox) {
+    var url, value, checked;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            e.preventDefault();
-            isInfoOk = checkInfo();
+            details.open = false;
+            details.style.pointerEvents = 'none';
+            url = new URL(window.location.href);
+            value = checkbox.value;
+            checked = checkbox.checked;
 
-            if (!isInfoOk) {
-              _context.next = 19;
-              break;
+            if (checked == false) {
+              url.searchParams["delete"]('order_by');
+              localStorage.removeItem('order_by');
+            } else {
+              url.searchParams.set('order_by', value);
+              localStorage.setItem('order_by', value);
             }
 
-            token = js_cookie__WEBPACK_IMPORTED_MODULE_0__["default"].get('token');
+            window.location.href = url;
 
-            if (token) {
-              _context.next = 8;
-              break;
-            }
-
-            document.location.href = "http://127.0.0.1:8000/login";
-            _context.next = 19;
-            break;
-
-          case 8:
-            BASE_URL = "https://api.clotthy.com/api";
-            config = setData(token);
-            _context.prev = 10;
-            disableBtn(true, 'not-allowed', 'Cargando...');
-            _context.next = 14;
-            return fetch("".concat(BASE_URL, "/cart"), config).then(function (res) {
-              return res.json();
-            }).then(function (res) {
-              var message = "";
-
-              if (res.data) {
-                message = "Producto agregado al carrito";
-                localStorage.setItem('cartId', res.data);
-              } else if (res.message) {
-                message = res.message;
-
-                if (res.message == 'El campo id prod cart ya ha sido tomado.') {
-                  message = changeMessage(message, 'Este producto ya se añadió al carrito');
-                }
-              }
-
-              alert(message);
-              disableBtn(false, 'pointer', btnValue);
-              window.location.reload();
-            });
-
-          case 14:
-            _context.next = 19;
-            break;
-
-          case 16:
-            _context.prev = 16;
-            _context.t0 = _context["catch"](10);
-            alert("Hubo un error, intentalo de nuevo");
-
-          case 19:
+          case 7:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[10, 16]]);
+    }, _callee);
   }));
-  return _addToCart.apply(this, arguments);
+  return _orderBy.apply(this, arguments);
 }
-
-function setData(token) {
-  var data = new FormData(form);
-  return {
-    method: 'POST',
-    body: data,
-    headers: {
-      'Authorization': "Bearer ".concat(token)
-    }
-  };
-}
-
-function changeMessage(text, newText) {
-  return text[0].replace(text[0], newText);
-}
-
-function disableBtn(disable, cursor, text) {
-  btn.disabled = disable;
-  btn.style.cursor = cursor;
-  btn.value = text;
-}
-})();
-
 /******/ })()
 ;

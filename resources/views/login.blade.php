@@ -50,6 +50,11 @@
             </div>
         </section>
     </main>
+    <script>
+        localStorage.removeItem('size');
+        localStorage.removeItem('color');
+        localStorage.removeItem('order_by');
+    </script>
     <script src="{{ mix('js/login.js') }}"></script>
 </body>
 </html>

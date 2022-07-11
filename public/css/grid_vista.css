@@ -3,6 +3,7 @@ main{
   grid-row-gap: 60px;
   grid-template-columns: 100%;
   grid-template-rows: repeat(3, auto);
+  margin-bottom: 100px;
 }
 
 main .img_vista{

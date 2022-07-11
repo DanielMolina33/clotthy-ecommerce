@@ -11,7 +11,6 @@ class Product extends Component {
     public $image;
     public $productId;
     public $ref;
-    // public $item;
 
     public function __construct($item){
         $this->name = $item['nombreprod'];

@@ -19424,6 +19424,32 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/css/menu.css":
+/*!********************************!*\
+  !*** ./resources/css/menu.css ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/products.css":
+/*!************************************!*\
+  !*** ./resources/css/products.css ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/style.css":
 /*!*********************************!*\
   !*** ./resources/css/style.css ***!
@@ -19822,6 +19848,8 @@ process.umask = function() { return 0; };
 /******/ 			"css/login": 0,
 /******/ 			"css/cart": 0,
 /******/ 			"css/main": 0,
+/******/ 			"css/products": 0,
+/******/ 			"css/menu": 0,
 /******/ 			"css/grid_vista": 0
 /******/ 		};
 /******/ 		
@@ -19872,12 +19900,14 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/grid_vista"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/grid_vista"], () => (__webpack_require__("./resources/css/style.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/grid_vista"], () => (__webpack_require__("./resources/css/main.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/grid_vista"], () => (__webpack_require__("./resources/css/grid_vista.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/grid_vista"], () => (__webpack_require__("./resources/css/cart.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/grid_vista"], () => (__webpack_require__("./resources/css/login.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/products","css/menu","css/grid_vista"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/products","css/menu","css/grid_vista"], () => (__webpack_require__("./resources/css/style.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/products","css/menu","css/grid_vista"], () => (__webpack_require__("./resources/css/main.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/products","css/menu","css/grid_vista"], () => (__webpack_require__("./resources/css/grid_vista.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/products","css/menu","css/grid_vista"], () => (__webpack_require__("./resources/css/cart.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/products","css/menu","css/grid_vista"], () => (__webpack_require__("./resources/css/login.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/products","css/menu","css/grid_vista"], () => (__webpack_require__("./resources/css/menu.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/style","css/login","css/cart","css/main","css/products","css/menu","css/grid_vista"], () => (__webpack_require__("./resources/css/products.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

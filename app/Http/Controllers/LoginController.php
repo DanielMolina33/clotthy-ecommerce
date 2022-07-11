@@ -11,8 +11,7 @@ class LoginController extends Controller {
     }
 
     public function index(Request $req){
-        $cookie = isset($_COOKIE['token']) ? $_COOKIE['token'] : null;
-        $isLogged =   $cookie;
+        $isLogged = isset($_COOKIE['token']) ? $_COOKIE['token'] : null;
         
         if($isLogged == null){
             return view('login'); 

@@ -13,9 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Login
 Route::get('/login', 'App\Http\Controllers\LoginController@index');
-Route::get('/signin', 'App\Http\Controllers\LoginController@signin');
 
+// Home
 Route::get('/', 'App\Http\Controllers\HomeController@index');
+
+// Products
 Route::get('/product/{id}/{ref}', 'App\Http\Controllers\ProductController@index')->name('product');
-Route::get('/cart/{token}', 'App\Http\Controllers\CartController@index');
+Route::get('/products', 'App\Http\Controllers\ProductsController@index');
+
+// Cart
+Route::get('/cart', 'App\Http\Controllers\CartController@index');
+
+// Transaction redirect
+Route::get('/transaction', 'App\Http\Controllers\CartController@empty');
