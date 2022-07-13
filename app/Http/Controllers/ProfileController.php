@@ -12,6 +12,8 @@ class ProfileController extends Controller {
     public function __construct(){
         $this->baseUrl = env('API_BASE_URL');
         $this->path = 'profile/me';
+
+        $this->middleware('prevent-back-history');
     }
 
     public function index(){
@@ -20,10 +22,10 @@ class ProfileController extends Controller {
         if(!$token) return "Vuelve a iniciar sesión";
 
         $url = $this->baseUrl.$this->path;
-        $res = Http::withToken($token)
+        $promise = Http::async()->withToken($token)
         ->acceptJson()
         ->get($url);
 
-        return $res['data'];
+        return $promise;
     }
 }

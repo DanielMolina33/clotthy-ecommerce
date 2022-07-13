@@ -11,7 +11,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-    <title>Login</title>
+    <title>Reestablecer contraseña</title>
 </head>
 <body>
     <main class="main">
@@ -24,7 +24,7 @@
         </section>
         <section class="login">
             <div class="login-container">
-                <h1 class="login-container_title">Inicio de sesión</h1>
+                <h1 class="login-container_title">Reestablecer contraseña</h1>
                 <form action="#" method="POST" class="login-container_form" id="form">
                     <div class="control">
                         <input
@@ -37,26 +37,14 @@
                     </div>
                     <div class="control">
                         <input
-                            type="password"
-                            name="password"
-                            placeholder="Contraseña"
-                            class="control_input"
-                            id="password"
-                        />
-                    </div>
-                    <div class="control">
-                        <input
                             type="submit"
-                            value="Iniciar sesión"
+                            value="Enviar"
                             class="control_btn"
                             id="btn"
                         />
                     </div>
                     <div class="forgot-password">
-                        <a href="{{ url('/register') }}" class="forgot-password_text">¿No estas registrado?</a>
-                    </div>
-                    <div class="forgot-password">
-                        <a href="{{ url('/password-forgot') }}" class="forgot-password_text">¿Olvidó su contraseña?</a>
+                        <a href="{{ url('/login') }}" class="forgot-password_text">Iniciar sesion</a>
                     </div>
                 </form>
             </div>
@@ -67,6 +55,6 @@
         localStorage.removeItem('color');
         localStorage.removeItem('order_by');
     </script>
-    <script src="{{ mix('js/login.js') }}"></script>
+    <script src="{{ mix('js/passwordForgot.js') }}"></script>
 </body>
 </html>

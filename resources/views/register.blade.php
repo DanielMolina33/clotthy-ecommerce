@@ -11,7 +11,16 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-    <title>Login</title>
+    <title>Registro</title>
+    <style>
+        .login-container_title {
+            margin-top: 120px;
+        }
+
+        .login-container_form {
+            padding-top: 10%;
+        }
+    </style>
 </head>
 <body>
     <main class="main">
@@ -24,8 +33,17 @@
         </section>
         <section class="login">
             <div class="login-container">
-                <h1 class="login-container_title">Inicio de sesión</h1>
+                <h1 class="login-container_title">Registro</h1>
                 <form action="#" method="POST" class="login-container_form" id="form">
+                    <div class="control">
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="Nombre de usuario"
+                            class="control_input"
+                            id="username"
+                        />
+                    </div>
                     <div class="control">
                         <input
                             type="email"
@@ -47,16 +65,13 @@
                     <div class="control">
                         <input
                             type="submit"
-                            value="Iniciar sesión"
+                            value="Registrar"
                             class="control_btn"
                             id="btn"
                         />
                     </div>
                     <div class="forgot-password">
-                        <a href="{{ url('/register') }}" class="forgot-password_text">¿No estas registrado?</a>
-                    </div>
-                    <div class="forgot-password">
-                        <a href="{{ url('/password-forgot') }}" class="forgot-password_text">¿Olvidó su contraseña?</a>
+                        <a href="{{ url('/login') }}" class="forgot-password_text">¿Ya tienes cuenta?</a>
                     </div>
                 </form>
             </div>
@@ -67,6 +82,6 @@
         localStorage.removeItem('color');
         localStorage.removeItem('order_by');
     </script>
-    <script src="{{ mix('js/login.js') }}"></script>
+    <script src="{{ mix('js/register.js') }}"></script>
 </body>
 </html>

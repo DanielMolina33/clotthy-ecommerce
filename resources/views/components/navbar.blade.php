@@ -9,16 +9,16 @@
     </div>
     <div class="menu_options">
         <ul class="menu_options_container">
-            @if($isLogged)
+            {{-- @if($isLogged)
                 <li class="option">
                     <a href="" class="option_login">Mi perfil</a>
                 </li>
-            @endif
+            @endif --}}
             <li class="option">
                 @if($isLogged == null)
-                    <a href="{{ url('/login') }}" class="option_login">Iniciar sesión</a>
+                    <a href="{{ url('/login') }}" class="option_login">Login</a>
                 @else
-                    <a href="" class="option_login" id="logout">Cerrar sesión</a>
+                    <a href="" class="option_login" id="logout">Cerrar sesi贸n</a>
                 @endif
             </li>
             <li class="option">

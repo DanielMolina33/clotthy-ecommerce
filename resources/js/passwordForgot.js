@@ -1,6 +1,5 @@
 'use strict'
 
-import Cookies from 'js-cookie';
 import { config } from './config';
 
 const BASE_URL = "https://api.clotthy.com/api";
@@ -12,8 +11,6 @@ form.addEventListener('submit', fetchData);
 async function fetchData(e){
     e.preventDefault();
     const formData = new FormData(form);
-    formData.append("password_confirmation", formData.get("password"));
-
     const fetchConfig = {
         method: 'POST',
         body: formData
@@ -22,28 +19,23 @@ async function fetchData(e){
     try{
         disableBtn(true, 'not-allowed', 'Cargando...');
 
-        await fetch(`${BASE_URL}/signin/customers`, fetchConfig)
+        await fetch(`${BASE_URL}/password/forgot/customers`, fetchConfig)
         .then(res => res.json())
         .then(res => {
             if(res.message) {
                 alert(res.message);
                 disableBtn(false, 'pointer', btnValue);
+                if(res.message == 'Correo electronico enviado correctamente'){
+                    window.location.href = `${config.PageUrl}/login`;
+                }
             } else {
-                localStorage.setItem("userLogged", JSON.stringify(res));
-                setCookie(res.token);
-                window.location.href = config.PageUrl;
+                alert("Hubo un error, intentalo de nuevo");
             }
         })
     } catch(e){
         console.log(e);
         alert("Hubo un error, intentalo de nuevo");
     }
-}
-
-function setCookie(token){
-    const d = new Date();
-    const expires = d.getHours() / 24;
-    Cookies.set('token', token, { expires });
 }
 
 function disableBtn(disable, cursor, text){

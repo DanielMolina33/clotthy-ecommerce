@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\utils;
 
 use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Promise;
 
 class Company {
     private $baseUrl;
@@ -13,12 +14,25 @@ class Company {
         $this->path = 'company';
     }
 
+    private function fetchData($promises){
+        $results = Promise\unwrap($promises);
+        $results = Promise\settle($promises)->wait();
+        return $results;
+    }
+
     public function getCompanyInfo(){
         $url = $this->baseUrl.$this->path;
-        $res = Http::acceptJson()->get($url, ['search' => 'clotthy']);
-        $companyId = $res['data']['data'][0]['id'];
-        $companyInfo = Http::acceptJson()->get($url."/$companyId");
-        return $companyInfo;
+        $promise = Http::async()->acceptJson()->get($url, ['search' => 'clotthy']);
+        $results = $this->fetchData(['company' => $promise]);
+        $res = $results['company']['value'];
+
+        if(isset($res['data'])){
+            $companyId = $res['data']['data'][0]['id'];
+            $promise = Http::async()->acceptJson()->get($url."/$companyId");
+            $results = $this->fetchData(['companyInfo' => $promise]);
+            $companyInfo = $results['companyInfo']['value'];
+            return $companyInfo;
+        }
     }
 }
 

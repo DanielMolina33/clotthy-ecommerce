@@ -19,4 +19,18 @@ class LoginController extends Controller {
 
         return redirect('/');
     }
+
+    public function register(){
+        $isLogged = isset($_COOKIE['token']) ? $_COOKIE['token'] : null;
+        
+        if($isLogged == null){
+            return view('register'); 
+        } 
+
+        return redirect('/');
+    }
+
+    public function passwordForget(){
+        return view('passwordForgot');
+    }
 }

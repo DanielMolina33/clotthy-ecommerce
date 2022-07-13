@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 // Login
 Route::get('/login', 'App\Http\Controllers\LoginController@index');
+Route::get('/register', 'App\Http\Controllers\LoginController@register');
+
+// Password
+Route::get('password-forgot', 'App\Http\Controllers\LoginController@passwordForget');
+Route::get('/password/reset/{userType}/{id}/{token}/{tokenId}', 'App\Http\Controllers\PasswordController@index');
+Route::post('/reset/{userType}/{id}/{token}/{tokenId}', 'App\Http\Controllers\PasswordController@reset')->name('reset');
 
 // Home
 Route::get('/', 'App\Http\Controllers\HomeController@index');

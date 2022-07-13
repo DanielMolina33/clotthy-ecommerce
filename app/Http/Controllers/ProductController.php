@@ -16,6 +16,8 @@ class ProductController extends Controller {
         $this->parameters = new Parameters();
         $this->baseUrl = env('API_BASE_URL');
         $this->path = 'product';
+
+        $this->middleware('prevent-back-history');
     }
 
     public function index($id, $ref){

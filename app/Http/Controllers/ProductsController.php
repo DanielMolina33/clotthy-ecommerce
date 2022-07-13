@@ -14,6 +14,8 @@ class ProductsController extends Controller {
         $this->path = 'product';
         $this->baseUrl = env('API_BASE_URL');
         $this->companyLogo = env('LOGO_LIGHT');
+
+        $this->middleware('prevent-back-history');
     }
 
     private function getData($req, $url){
@@ -30,7 +32,7 @@ class ProductsController extends Controller {
         $res = $this->getData($req, $url);
 
         return view('products')->with([
-            "res" => $res['data'],
+            "res" => isset($res['data']) ? $res['data'] : [],
             "companyLogo" => $this->companyLogo,
         ]);
     }

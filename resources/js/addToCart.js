@@ -1,6 +1,7 @@
 'use strict'
 
 import Cookies from 'js-cookie';
+import { config } from './config';
 
 const form = document.getElementById('form');
 const btn = document.querySelector('#addToCart');
@@ -28,15 +29,15 @@ async function addToCart(e){
         const token = Cookies.get('token');
     
         if(!token){
-            document.location.href = "http://127.0.0.1:8000/login";
+            document.location.href = `${config.PageUrl}/login`
             
         } else {
             const BASE_URL = "https://api.clotthy.com/api"
-            const config = setData(token);
+            const fetchConfig = setData(token);
     
             try {
                 disableBtn(true, 'not-allowed', 'Cargando...');
-                await fetch(`${BASE_URL}/cart`, config)
+                await fetch(`${BASE_URL}/cart`, fetchConfig)
                 .then(res => res.json())
                 .then(res => {
                     let message = "";

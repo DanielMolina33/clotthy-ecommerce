@@ -19,10 +19,13 @@ mix.webpackConfig({
 });
 
 mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js/config.js', 'public/js')
 mix.js('resources/js/efecto.js', 'public/js')
 mix.js('resources/js/select.js', 'public/js')
 mix.js('resources/js/login.js', 'public/js')
+mix.js('resources/js/register.js', 'public/js')
 mix.js('resources/js/logout.js', 'public/js')
+mix.js('resources/js/passwordForgot.js', 'public/js')
 mix.js('resources/js/addToCart.js', 'public/js')
 mix.js('resources/js/cart.js', 'public/js')
 mix.js('resources/js/menu.js', 'public/js')

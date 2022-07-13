@@ -43,6 +43,12 @@ h1 {
     height: 100%;
 }
 
+.logo a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
 .logo_img {
     width: 30%;
 }
@@ -104,9 +110,13 @@ h1 {
     text-align: center;
 }
 
+.forgot-password:not(:last-child){
+    margin-bottom: 10px;
+}
+
 .forgot-password_text,
 .forgot-password_text:visited {
-    color: #969696;
+    color: #373737;
     text-decoration: none;
 }
 

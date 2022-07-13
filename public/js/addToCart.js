@@ -2,6 +2,24 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./resources/js/config.js":
+/*!********************************!*\
+  !*** ./resources/js/config.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "config": () => (/* binding */ config)
+/* harmony export */ });
+
+
+var config = {
+  PageUrl: 'http://127.0.0.1:8000'
+};
+
+/***/ }),
+
 /***/ "./node_modules/js-cookie/dist/js.cookie.mjs":
 /*!***************************************************!*\
   !*** ./node_modules/js-cookie/dist/js.cookie.mjs ***!
@@ -214,6 +232,7 @@ var __webpack_exports__ = {};
   \***********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/dist/js.cookie.mjs");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config */ "./resources/js/config.js");
 
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -223,6 +242,7 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 var form = document.getElementById('form');
@@ -249,7 +269,7 @@ function addToCart(_x) {
 
 function _addToCart() {
   _addToCart = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
-    var isInfoOk, token, BASE_URL, config;
+    var isInfoOk, token, BASE_URL, fetchConfig;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -269,17 +289,17 @@ function _addToCart() {
               break;
             }
 
-            document.location.href = "http://127.0.0.1:8000/login";
+            document.location.href = "".concat(_config__WEBPACK_IMPORTED_MODULE_1__.config.PageUrl, "/login");
             _context.next = 19;
             break;
 
           case 8:
             BASE_URL = "https://api.clotthy.com/api";
-            config = setData(token);
+            fetchConfig = setData(token);
             _context.prev = 10;
             disableBtn(true, 'not-allowed', 'Cargando...');
             _context.next = 14;
-            return fetch("".concat(BASE_URL, "/cart"), config).then(function (res) {
+            return fetch("".concat(BASE_URL, "/cart"), fetchConfig).then(function (res) {
               return res.json();
             }).then(function (res) {
               var message = "";

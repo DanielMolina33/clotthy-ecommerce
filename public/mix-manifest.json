@@ -1,9 +1,12 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/config.js": "/js/config.js",
     "/js/efecto.js": "/js/efecto.js",
     "/js/select.js": "/js/select.js",
     "/js/login.js": "/js/login.js",
+    "/js/register.js": "/js/register.js",
     "/js/logout.js": "/js/logout.js",
+    "/js/passwordForgot.js": "/js/passwordForgot.js",
     "/js/addToCart.js": "/js/addToCart.js",
     "/js/cart.js": "/js/cart.js",
     "/js/menu.js": "/js/menu.js",
