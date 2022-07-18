@@ -67,8 +67,8 @@
                     @endif
                 />
                 <p>De 
-                    @if($res['from'])
-                        {{ $res['from'] }}
+                    @if($res['last_page'])
+                        {{ $res['last_page'] }}
                     @else 
                         0
                     @endif

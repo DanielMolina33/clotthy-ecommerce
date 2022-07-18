@@ -29,14 +29,14 @@
     <main>
       <section class="img_vista">
         <div><img src="{{ $product['imgprod1'] }}" alt="Imagen de producto 1"></div>
-        @if($product['imgprod1'])
-            <div><img src="{{ $product['imgprod1'] }}" alt="Imagen de producto 2"></div>
+        @if($product['imgprod2'])
+            <div><img src="{{ $product['imgprod2'] }}" alt="Imagen de producto 2"></div>
         @endif
-        @if($product['imgprod1'])
-            <div><img src="{{ $product['imgprod1'] }}" alt="Imagen de producto 3"></div>
+        @if($product['imgprod3'])
+            <div><img src="{{ $product['imgprod3'] }}" alt="Imagen de producto 3"></div>
         @endif
-        @if($product['imgprod1'])
-            <div><img src="{{ $product['imgprod1'] }}" alt="Imagen de producto 4"></div>
+        @if($product['imgprod4'])
+            <div><img src="{{ $product['imgprod4'] }}" alt="Imagen de producto 4"></div>
         @endif
       </section>
       <section class="compra">
@@ -93,7 +93,7 @@
               </ul>
             </div>
             <div class="botones">
-              <input type="submit" form="form" value="Añadir al carrito" id="addToCart"/>
+              <input type="submit" form="form" value="A単adir al carrito" id="addToCart"/>
             </div>
           </div>
         </div>

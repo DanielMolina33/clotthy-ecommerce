@@ -19,9 +19,9 @@ function isNumber(e){
 
 function setPage(e){
     e.preventDefault();
-    const id = e.target.id;
-    let page = id == "prevPage" ? e.target.dataset.prev : e.target.dataset.next;
-    value = page ? page.replace("?page=", "") : 1;
+    const id = e.currentTarget.id;
+    let page = id == "prevPage" ? e.currentTarget.dataset.prev : e.currentTarget.dataset.next;
+    const value = page ? page.replace("?page=", "") : 1;
 
     changePage(e, value);
 }
